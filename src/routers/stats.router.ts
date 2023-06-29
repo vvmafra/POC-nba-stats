@@ -1,5 +1,4 @@
 import { Router } from "express";
-
 import * as statsController from "@/controllers/stats.controller"
 import { validateSchema } from "@/middlewares/validateSchema";
 import { statsSchema } from "@/schemas/stats.schemas";
