@@ -15,10 +15,16 @@ export async function getStats() {
     return stats
 }
 
-export async function putStats(){
-
+export async function putStats({id, player, points, rebounds, assists}){
+    return statsRepository.putStats({
+        id,
+        player, 
+        points, 
+        rebounds, 
+        assists
+    })
 }
 
-export async function deleteStats(){
-
+export async function deleteStats(id:number){
+    return statsRepository.deleteStats(id)
 }
