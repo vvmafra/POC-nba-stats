@@ -1,16 +1,17 @@
-import { CreateStat, Stats } from "@/protocols";
+import { db } from "@/database/database";
 
-const stats: Stats[] = [
+export async function createStat({player, points, rebounds, assists}) {
+    
+    const newStat = db.query(`INSERT INTO stats 
+    ("player", "points", "rebounds", "assists") VALUES 
+    ($1, $2, $3, $4)`, [player, points, rebounds, assists])
 
-]
-
-export function createStat(stat: Stats) {
-    return stats.push(stat)
-
+    return newStat
 }
 
-export function getStats(){
-    return stats
+export async function getStats(){
+    const getStats = await db.query(`SELECT * FROM stats`)
+    return getStats.rows
 }
 
 export function putStats(){

@@ -1,11 +1,24 @@
-import { Stats } from "@/protocols";
-import * as statRepository from "@/repositories/stats.repository"
+import * as statsRepository from "@/repositories/stats.repository"
 
 
-export function createStat(stat: Stats) {
-    return statRepository.createStat(stat)
+export async function createStat({player, points, rebounds, assists}) {
+    return statsRepository.createStat({
+        player, 
+        points, 
+        rebounds, 
+        assists
+    })
 }
 
-export function getStats() {
-    return statRepository.getStats()
+export async function getStats() {
+    const stats = statsRepository.getStats()
+    return stats
+}
+
+export async function putStats(){
+
+}
+
+export async function deleteStats(){
+
 }
